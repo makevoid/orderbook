@@ -45,23 +45,23 @@ describe "Trading::Order" do
       order1 = Trading::Order.parse("2013-12-01T16:18:00Z\tBUY\tBTC\t100.000\t100")
       order2 = Trading::Order.parse("2013-12-01T16:19:00Z\tSELL\tBTC\t100.000\t100")
 
-      order1.match?(order2).should be_true
+      order1.match?(order2).should be true
     end
 
     it "should not match a non-matching order" do
       order1 = Trading::Order.parse("2013-12-01T16:18:00Z\tBUY\tBTC\t100.000\t100")
       order2 = Trading::Order.parse("2013-12-01T16:19:00Z\tSELL\tBTC\t101.000\t100")
 
-      order1.match?(order2).should be_false
+      order1.match?(order2).should be false
     end
 
     it "should match if buy price > sell price" do
       buy = Trading::Order.parse("2013-12-01T16:18:00Z\tBUY\tBTC\t101.000\t100")
       sell = Trading::Order.parse("2013-12-01T16:19:00Z\tSELL\tBTC\t100.000\t100")
 
-      buy.match?(sell).should be_true
+      buy.match?(sell).should be true
     end
-    
+
   end
 
   describe "#split" do
@@ -75,5 +75,5 @@ describe "Trading::Order" do
       order.quantity.should eq(50)
     end
   end
-      
+
 end

@@ -5,7 +5,7 @@ describe "Trading::OrderBook" do
   before do
     @book = Trading::OrderBook.new
   end
-  
+
   describe "#submit_order" do
     it "should push the order onto the buy book" do
       buy = Trading::Order.parse("2013-12-01T16:19:00Z\tBUY\tBTC\t100.000\t100")
@@ -32,7 +32,7 @@ describe "Trading::OrderBook" do
 
       @book.submit_order(sell)
 
-      @book.match?.should be_false
+      @book.match?.should be false
     end
 
     it "should return false if sell is empty" do
@@ -40,7 +40,7 @@ describe "Trading::OrderBook" do
 
       @book.submit_order(buy)
 
-      @book.match?.should be_false
+      @book.match?.should be false
     end
 
     it "should return false if sell does not match buy" do
@@ -50,7 +50,7 @@ describe "Trading::OrderBook" do
       @book.submit_order(buy)
       @book.submit_order(sell)
 
-      @book.match?.should be_false
+      @book.match?.should be false
     end
 
     it "should return true if sell matches buy" do
@@ -60,7 +60,7 @@ describe "Trading::OrderBook" do
       @book.submit_order(buy)
       @book.submit_order(sell)
 
-      @book.match?.should be_true
+      @book.match?.should be true
     end
   end
 
