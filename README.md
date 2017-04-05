@@ -1,3 +1,15 @@
+neat implementation of an orderbook by @peterkeen - check out github.com: peterkeen/trading
+
+
+changes on top of master branch:
+
+- updated specs to latest rspec
+
+
+---
+
+original readme:
+
 # Trading Engine Model
 
 This is a simple toy trading engine. Orders stream in on STDIN and fulfilled trades
